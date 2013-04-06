@@ -9,7 +9,7 @@ Tested on:
 - Opera 12.14
 - Opera Mobile
 - Mozilla Firefox 19.0.2 - works only with changed settings: 
-	-> about:config -> media.peerconnection.enabled (TRUE)
+	<b><i>-> about:config -> media.peerconnection.enabled (TRUE)</i></b>
 
 Two elements:
 
