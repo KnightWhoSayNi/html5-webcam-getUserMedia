@@ -14,10 +14,7 @@ Tested on:
 Two elements:
 
 - video - to handle webcam
-	<code><video id="camera" autoplay poster="images/poster.gif"></video></code>
 - canvas - to snap photo
-	<blockquote><canvas id="can" width="640" height="480"></canvas></blockquote>
-		
 
 Sources:
 
