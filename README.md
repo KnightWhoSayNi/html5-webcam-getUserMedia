@@ -5,6 +5,7 @@ Snap photo from webcam by using HTML5 and JavaScript
 
 Tested on:
 
+http://caniuse.com/stream
 - Chrome 26.0.1410.43 m
 - Opera 12.14
 - Opera Mobile
