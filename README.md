@@ -3,6 +3,29 @@ html5-webcam-getUserMedia
 
 Snap photo from webcam by using HTML5 and JavaScript
 
+## Cross-browser handling webcamera with getUserMedia()
+```javascript
+	function successCallback(stream) {
+		
+		if (use_moz) { 
+		//FireFox
+			camera.mozSrcObject = stream;
+			//camera.src = URL.createObjectURL(stream);
+			camera.play();	
+		}
+		else if (use_webkit) { 
+		//Chrome
+			window.local = stream;
+			camera.src = window.webkitURL.createObjectURL(stream);
+		} 
+		else {
+		//W3C Standard; Opera
+			camera.src = stream;
+		}
+		camera.play();				
+		disableButtons(true, false);
+	}
+```
 ## Tested on:
 
 http://caniuse.com/stream - ```getUserMedia()```
@@ -15,8 +38,8 @@ http://caniuse.com/stream - ```getUserMedia()```
 	```-> about:config -> media.peerconnection.enabled (TRUE)```
 
 ## Two elements:
-- ```video``` - to handle webcam
-- ```canvas``` - to snap photo
+- ```<video></video>``` - to handle webcam
+- ```<canvas></canvas>``` - to snap photo
 
 ## Sources:
 - [http://dev.w3.org/2011/webrtc/editor/getusermedia.html](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
