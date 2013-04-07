@@ -5,7 +5,7 @@ Snap photo from webcam by using HTML5 and JavaScript
 
 ## Tested on:
 
-http://caniuse.com/stream - '''getUserMedia()'''
+http://caniuse.com/stream - ```getUserMedia()```
 - Chrome 26.0.1410.43 m
 - Opera 12.14
 - Opera Mobile
@@ -13,8 +13,8 @@ http://caniuse.com/stream - '''getUserMedia()'''
 	<b><i>-> about:config -> media.peerconnection.enabled (TRUE)</i></b>
 
 ## Two elements:
-- '''video''' - to handle webcam
-- '''canvas''' - to snap photo
+- ```video``` - to handle webcam
+- ```canvas``` - to snap photo
 
 ## Sources:
 - [http://dev.w3.org/2011/webrtc/editor/getusermedia.html](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
