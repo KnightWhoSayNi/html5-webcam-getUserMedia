@@ -50,8 +50,8 @@ http://caniuse.com/stream - ```getUserMedia()```
 	```-> about:config -> media.peerconnection.enabled (TRUE)```
 
 ## Two elements:
-- ```<video></video>``` - to handle webcam
-- ```<canvas></canvas>``` - to snap photo
+- ```<video id="camera"></video>``` - to handle webcam
+- ```<canvas id="can"></canvas>``` - to snap photo
 
 ## Sources:
 - [http://dev.w3.org/2011/webrtc/editor/getusermedia.html](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
