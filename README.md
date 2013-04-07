@@ -3,6 +3,13 @@ html5-webcam-getUserMedia
 
 Snap photo from webcam by using HTML5 and JavaScript
 
+## .getUserMedia()
+```javascript
+	var constraints = {audio:false, video:true};
+
+	navigator.getUserMedia(constraints, successCallback, errorCallback);
+```
+
 ## Cross-browser handling webcamera with getUserMedia()
 ```javascript
 	function successCallback(stream) {
@@ -25,6 +32,11 @@ Snap photo from webcam by using HTML5 and JavaScript
 		camera.play();				
 		disableButtons(true, false);
 	}
+
+	function errorCallback(error) {
+		console.log("An error occured! " + error);
+	}
+
 ```
 ## Tested on:
 
