@@ -18,8 +18,9 @@ http://caniuse.com/stream - ```getUserMedia()```
 
 ## Sources:
 - [http://dev.w3.org/2011/webrtc/editor/getusermedia.html](http://dev.w3.org/2011/webrtc/editor/getusermedia.html)
+- [http://www.webrtc.org/](http://www.webrtc.org/)
 
 
 ## License:
-Copyright (c) 2013 KnightWhoSayNi
-Licensed under the MIT license.
+Copyright (c) 2013 KnightWhoSayNi  
+Licensed under the [http://opensource.org/licenses/MIT](MIT license).
