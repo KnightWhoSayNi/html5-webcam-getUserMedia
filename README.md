@@ -47,5 +47,5 @@ http://caniuse.com/stream - ```getUserMedia()```
 
 
 ## License:
-Copyright (c) 2013 KnightWhoSayNi  
+Copyright (c) 2013 [KnightWhoSayNi](mailto:siemioneks@gmail.com)  
 Licensed under the [MIT license](http://opensource.org/licenses/MIT).
