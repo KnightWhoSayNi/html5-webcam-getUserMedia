@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Html5-webcam-getusermedia : Snap photo from webcam by using HTML5 and JavaScript" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Html5-webcam-getusermedia</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/KnightWhoSayNi/html5-webcam-getUserMedia">View on GitHub</a>
+
+          <h1 id="project_title">Html5-webcam-getusermedia</h1>
+          <h2 id="project_tagline">Snap photo from webcam by using HTML5 and JavaScript</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/KnightWhoSayNi/html5-webcam-getUserMedia/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/KnightWhoSayNi/html5-webcam-getUserMedia/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>html5-webcam-getUserMedia</h1>
+
+<p>Snap photo from webcam by using HTML5 and JavaScript</p>
+
+<h2>.getUserMedia()</h2>
+
+<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">constraints</span> <span class="o">=</span> <span class="p">{</span><span class="nx">audio</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span> <span class="nx">video</span><span class="o">:</span><span class="kc">true</span><span class="p">};</span>
+
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span><span class="nx">constraints</span><span class="p">,</span> <span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+</pre></div>
+
+<h2>Cross-browser handling webcamera with getUserMedia()</h2>
+
+<div class="highlight"><pre>    <span class="kd">function</span> <span class="nx">successCallback</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">use_moz</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="c1">//FireFox</span>
+            <span class="nx">camera</span><span class="p">.</span><span class="nx">mozSrcObject</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">;</span>
+            <span class="c1">//camera.src = URL.createObjectURL(stream);</span>
+            <span class="nx">camera</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>  
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">use_webkit</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="c1">//Chrome</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">local</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">;</span>
+            <span class="nx">camera</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitURL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+        <span class="p">}</span> 
+        <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">//W3C Standard; Opera</span>
+            <span class="nx">camera</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">stream</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">camera</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>              
+        <span class="nx">disableButtons</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">errorCallback</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"An error occured! "</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+
+</pre></div>
+
+<h2>Tested on:</h2>
+
+<p><a href="http://caniuse.com/stream">http://caniuse.com/stream</a> - <code>getUserMedia()</code></p>
+
+<p><i>(06.04.2013)</i></p>
+
+<ul>
+<li>Chrome <b>26.0.1410.43 m</b>
+</li>
+<li>Opera <b>12.14</b>
+</li>
+<li>Opera Mobile</li>
+<li>Mozilla Firefox <b>19.0.2</b> - works only with changed settings:
+<code>-&gt; about:config -&gt; media.peerconnection.enabled (TRUE)</code>
+</li>
+</ul><h2>Two elements:</h2>
+
+<ul>
+<li>
+<code>&lt;video id="camera"&gt;&lt;/video&gt;</code> - to handle webcam</li>
+<li>
+<code>&lt;canvas id="can"&gt;&lt;/canvas&gt;</code> - to snap photo</li>
+</ul><h2>Sources:</h2>
+
+<ul>
+<li><a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">http://dev.w3.org/2011/webrtc/editor/getusermedia.html</a></li>
+<li><a href="http://www.webrtc.org/">http://www.webrtc.org/</a></li>
+</ul><h2>License:</h2>
+
+<p>Copyright (c) 2013 <a href="mailto:siemioneks@gmail.com">KnightWhoSayNi</a><br>
+Licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Html5-webcam-getusermedia maintained by <a href="https://github.com/KnightWhoSayNi">KnightWhoSayNi</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-11192943-12");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
